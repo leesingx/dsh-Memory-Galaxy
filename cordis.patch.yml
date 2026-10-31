@@ -1,0 +1,6 @@
+- insert:
+    - id: memory-galaxy
+      name: dsh-memory-galaxy
+      config:
+        source: auto
+        title: 记忆银河
