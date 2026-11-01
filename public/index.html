@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8" />
-<title>记忆银河 · Memory Galaxy</title>
+<title>大肥鱼 · 记忆银河</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
   :root { color-scheme: dark; }
@@ -17,53 +17,64 @@
 
   /* 顶部 */
   #top { left: 16px; top: 14px; padding: 10px 14px; display: flex; flex-direction: column; gap: 6px; min-width: 300px; }
-  #top h1 { margin: 0; font-size: 15px; letter-spacing: .18em; color: #cfe0ff; font-weight: 600; }
-  #top .row { display: flex; gap: 14px; font-size: 12px; color: #8290ac; flex-wrap: wrap; }
+  #top h1 { margin: 0; font-size: 17px; letter-spacing: .18em; color: #cfe0ff; font-weight: 600; }
+  #top .row { display: flex; gap: 14px; font-size: 13.5px; color: #8290ac; flex-wrap: wrap; }
   #top .row b { color: #e6eeff; font-weight: 600; }
   #tools { display: flex; gap: 6px; margin-top: 2px; flex-wrap: wrap; }
   #tools button { background: rgba(120,160,255,.09); color: #b9caf0; border: 1px solid rgba(120,160,255,.2);
-                  border-radius: 7px; padding: 3px 9px; font-size: 12px; cursor: pointer; transition: .15s; }
+                  border-radius: 7px; padding: 4px 11px; font-size: 13.5px; cursor: pointer; transition: .15s; }
   #tools button:hover { background: rgba(120,160,255,.2); color: #fff; }
   #tools button.on { background: rgba(80,220,170,.22); border-color: rgba(80,220,170,.55); color: #9dffe0; }
   #search { width: 100%; margin-top: 4px; background: rgba(255,255,255,.05); border: 1px solid rgba(120,160,255,.18);
-            border-radius: 7px; color: #dce6ff; padding: 5px 9px; font-size: 12px; outline: none; }
+            border-radius: 7px; color: #dce6ff; padding: 6px 10px; font-size: 13.5px; outline: none; }
   #search:focus { border-color: rgba(120,190,255,.6); }
 
   /* 右侧 */
-  #right { right: 16px; top: 14px; width: 264px; padding: 12px 14px; max-height: calc(100vh - 130px); overflow: auto; }
-  #right h2 { margin: 10px 0 6px; font-size: 11px; letter-spacing: .16em; color: #6f7e9c; font-weight: 600; }
+  #right { right: 16px; top: 14px; width: 302px; padding: 12px 14px; max-height: calc(100vh - 130px); overflow: auto; }
+  #right h2 { margin: 10px 0 6px; font-size: 12.5px; letter-spacing: .16em; color: #6f7e9c; font-weight: 600; }
   #right h2:first-child { margin-top: 0; }
-  .kindrow { display: flex; align-items: center; gap: 8px; padding: 3px 4px; border-radius: 6px; cursor: pointer; font-size: 12px; }
+  .kindrow { display: flex; align-items: center; gap: 8px; padding: 3px 4px; border-radius: 6px; cursor: pointer; font-size: 13.5px; }
   .kindrow:hover { background: rgba(120,160,255,.1); }
   .kindrow.off { opacity: .32; }
+  .kindrow.on { background: rgba(120,160,255,.16); box-shadow: inset 0 0 0 1px rgba(140,185,255,.35); }
+  .kindrow .dot { cursor: pointer; }
+  .kindrow .dot:hover { box-shadow: 0 0 0 3px rgba(160,200,255,.25); }
   .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
   .kindrow .n { margin-left: auto; color: #9fb0d0; font-variant-numeric: tabular-nums; }
   .stat { display: flex; gap: 6px; flex-wrap: wrap; }
-  .stat span { background: rgba(120,160,255,.1); border-radius: 999px; padding: 1px 9px; font-size: 11.5px; color: #b6c6e6; }
-  .mini { font-size: 11.5px; color: #93a2c0; padding: 3px 4px; border-radius: 6px; cursor: pointer;
+  .stat span { background: rgba(120,160,255,.1); border-radius: 999px; padding: 2px 10px; font-size: 13px; color: #b6c6e6; }
+  .mini { font-size: 13px; color: #93a2c0; padding: 3px 4px; border-radius: 6px; cursor: pointer;
           overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .mini:hover { background: rgba(120,160,255,.12); color: #e3ecff; }
+  #linkbar { margin-top: 6px; }
+  #linkbar .chip { display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+    background: rgba(255,205,120,.14); border: 1px solid rgba(255,205,120,.45); color: #ffe6b8;
+    border-radius: 999px; padding: 2px 10px; font-size: 12.5px; }
+  #linkbar .chip:hover { background: rgba(255,205,120,.26); }
+  #linkbar .chip b { color: #fff; font-weight: 600; }
 
   /* 底部时间滑杆 */
   #time { left: 50%; transform: translateX(-50%); bottom: 18px; width: min(720px, calc(100vw - 360px)); padding: 10px 18px 12px; }
-  #time .head { display: flex; align-items: baseline; gap: 10px; font-size: 12px; color: #8d9cbb; }
-  #time .head b { color: #cfe1ff; font-weight: 600; font-size: 13px; }
+  #time .head { display: flex; align-items: baseline; gap: 10px; font-size: 13.5px; color: #8d9cbb; }
+  #time .head b { color: #cfe1ff; font-weight: 600; font-size: 15px; }
   #time .head .right { margin-left: auto; }
   input[type=range] { width: 100%; margin: 8px 0 2px; accent-color: #6fc7ff; }
-  #time .ticks { display: flex; justify-content: space-between; font-size: 10.5px; color: #52607c; }
+  #time .ticks { position: relative; height: 18px; font-size: 12px; color: #52607c; }
+  #time .ticks span { position: absolute; top: 0; white-space: nowrap; }
+  #time .ticks span::before { content: ""; position: absolute; left: 50%; top: -5px; width: 1px; height: 4px; background: #3a4763; }
 
   /* 详情 */
-  #detail { left: 16px; bottom: 18px; width: 330px; padding: 12px 14px; display: none; }
+  #detail { left: 16px; bottom: 18px; width: 376px; padding: 12px 14px; display: none; }
   #detail.show { display: block; }
-  #detail .k { font-size: 10.5px; letter-spacing: .12em; color: #6f7e9c; text-transform: uppercase; }
-  #detail .t { font-size: 14px; color: #eef4ff; margin: 2px 0 8px; font-weight: 600; }
-  #detail .x { font-size: 12.5px; line-height: 1.65; color: #c3cfe6; white-space: pre-wrap; margin-bottom: 10px; max-height: 168px; overflow: auto; }
+  #detail .k { font-size: 11.5px; letter-spacing: .12em; color: #6f7e9c; text-transform: uppercase; }
+  #detail .t { font-size: 16.5px; color: #eef4ff; margin: 2px 0 8px; font-weight: 600; }
+  #detail .x { font-size: 14px; line-height: 1.7; color: #c3cfe6; white-space: pre-wrap; margin-bottom: 10px; max-height: 210px; overflow: auto; }
   #detail .meta { display: flex; gap: 6px; flex-wrap: wrap; }
-  #detail .meta span { font-size: 11px; background: rgba(120,160,255,.12); border-radius: 999px; padding: 1px 8px; color: #a9bce0; }
+  #detail .meta span { font-size: 12.5px; background: rgba(120,160,255,.12); border-radius: 999px; padding: 1px 8px; color: #a9bce0; }
 
-  #hint { position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); font-size: 11.5px; color: #4b5871; pointer-events: none; }
+  #hint { position: fixed; left: 50%; bottom: 100px; transform: translateX(-50%); font-size: 12.5px; color: #4b5871; pointer-events: none; }
   #tip { position: fixed; pointer-events: none; background: rgba(8,13,24,.92); border: 1px solid rgba(120,160,255,.22);
-         border-radius: 8px; padding: 5px 9px; font-size: 12px; color: #dbe6ff; max-width: 320px; display: none; z-index: 9; }
+         border-radius: 8px; padding: 6px 10px; font-size: 13.5px; color: #dbe6ff; max-width: 380px; display: none; z-index: 9; }
 </style>
 </head>
 <body>
@@ -89,6 +100,7 @@
   <div class="stat" id="sources"></div>
   <h2>状态（随滑杆变化）</h2>
   <div class="stat" id="states"></div>
+  <div id="linkbar"></div>
   <h2>它记着的事</h2>
   <div id="pinned"></div>
   <h2>学到的做法</h2>
@@ -98,7 +110,7 @@
 <div id="time" class="panel">
   <div class="head"><span>遗忘推演</span><b id="tLabel">今天</b><span id="tStats" class="right"></span></div>
   <input id="slider" type="range" min="0" max="365" value="0" step="1" />
-  <div class="ticks"><span>今天</span><span>+30天</span><span>+90天</span><span>+180天</span><span>+365天</span></div>
+  <div class="ticks" id="ticks"></div>
 </div>
 
 <div id="detail" class="panel">
@@ -132,19 +144,37 @@ function resize() {
   ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
 }
 window.addEventListener('resize', resize);
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { if (linkKind) { linkKind = null; renderKinds(); } else { select(null); } }
+});
 
 let stars = [], messages = [], links = [], meta = {};
-let cam = { yaw: -0.55, pitch: -1.35, dist: 1300, focal: 1400 };
+let cam = { yaw: -0.55, pitch: -1.30, dist: 1950, focal: 1400 };
 let opts = { spin: true, beams: false, labels: true };
 let tDays = 0;
 let hiddenKinds = new Set();
+let linkKind = null;   // 高亮并连线的类型；null = 不连
+let linkGraph = null;  // 该类型的「固定」邻接图（世界坐标算好就缓存，旋转/缩放都不变）
+let linkGraphKind = null;
 let query = '';
 let msgMatch = '';
 let selected = null, hovered = null;
 const placed = [];
+let labelQueue = [];
 const R = 1000;
 
 const el = (id) => document.getElementById(id);
+
+function pad2(n) { return String(n).padStart(2, '0'); }
+function shortDate(at) {
+  const d = new Date(at);
+  const sameYear = d.getFullYear() === new Date().getFullYear();
+  return sameYear ? `${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}` : `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+}
+function fullDate(at) {
+  const d = new Date(at);
+  return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())} ${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+}
 
 function retention(s, t) {
   const effAge = s.hitDays === null ? s.ageDays : Math.min(s.ageDays, s.hitDays * 0.55);
@@ -182,27 +212,37 @@ function draw() {
 
   // 核心辉光
   const core = project(0, 0, 0);
-  const glow = ctx.createRadialGradient(core.x, core.y, 0, core.x, core.y, Math.max(120, 300 * core.s));
-  glow.addColorStop(0, 'rgba(255,232,190,.16)');
-  glow.addColorStop(0.35, 'rgba(255,205,140,.07)');
+  // 中心核球：暖金色，模仿参考图里那颗亮核
+  const coreR = Math.max(110, 300 * core.s);
+  const glow = ctx.createRadialGradient(core.x, core.y, 0, core.x, core.y, coreR);
+  glow.addColorStop(0, 'rgba(255,246,225,.26)');
+  glow.addColorStop(0.12, 'rgba(255,232,190,.15)');
+  glow.addColorStop(0.34, 'rgba(255,205,140,.06)');
+  glow.addColorStop(0.68, 'rgba(240,180,120,.02)');
   glow.addColorStop(1, 'rgba(255,190,120,0)');
   ctx.fillStyle = glow;
-  ctx.beginPath(); ctx.arc(core.x, core.y, Math.max(120, 300 * core.s), 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.arc(core.x, core.y, coreR, 0, Math.PI * 2); ctx.fill();
+  // 极亮的小核
+  const nuc = ctx.createRadialGradient(core.x, core.y, 0, core.x, core.y, Math.max(26, 60 * core.s));
+  nuc.addColorStop(0, 'rgba(255,252,240,.45)');
+  nuc.addColorStop(1, 'rgba(255,235,200,0)');
+  ctx.fillStyle = nuc;
+  ctx.beginPath(); ctx.arc(core.x, core.y, Math.max(26, 60 * core.s), 0, Math.PI * 2); ctx.fill();
 
   // 旋臂薄雾
   ctx.globalCompositeOperation = 'lighter';
   const nArms = meta.arms || 3;
   for (let pass = 0; pass < 2; pass++) {
-    ctx.globalAlpha = pass === 0 ? 0.014 : 0.010;
-    ctx.strokeStyle = pass === 0 ? 'rgba(120,170,255,1)' : 'rgba(190,150,255,1)';
-    ctx.lineWidth = pass === 0 ? 34 : 14;
+    ctx.globalAlpha = pass === 0 ? 0.030 : 0.016;
+    ctx.strokeStyle = pass === 0 ? 'rgba(140,180,255,1)' : 'rgba(255,170,205,1)';
+    ctx.lineWidth = pass === 0 ? 58 : 20;
     ctx.lineCap = 'round';
     for (let a = 0; a < nArms; a++) {
       ctx.beginPath();
       for (let i = 0; i <= 80; i++) {
         const rr = 0.14 + (i / 80) * 0.88;
         const rad = R * rr;
-        const th = (a / nArms) * Math.PI * 2 - 3.1 * Math.log(rr * 6 + 1);
+        const th = (a / nArms) * Math.PI * 2 - 2.6 * Math.log(rr * 6 + 1);
         const p = project(Math.cos(th) * rad, 0, Math.sin(th) * rad);
         i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
       }
@@ -219,9 +259,9 @@ function draw() {
     const p = project(msg.x, msg.y, msg.z);
     if (p.s <= 0.02) continue;
     const c = msg.self ? [255, 214, 160] : msg.key.startsWith('private') ? [150, 190, 255] : [140, 226, 190];
-    ctx.globalAlpha = Math.min(0.95, (0.10 + 0.58 * ret) * (0.45 + p.s * 0.65) * (msg.self ? 1.1 : 1) * (msgMatch ? (hit ? 1.9 : 0.18) : 1));
+    ctx.globalAlpha = Math.min(0.95, (0.16 + 0.66 * ret) * (0.45 + p.s * 0.65) * (msg.self ? 1.1 : 1) * (msgMatch ? (hit ? 1.9 : 0.18) : 1));
     ctx.fillStyle = 'rgb(' + c.join(',') + ')';
-    const sz = Math.max(1.0, (msgMatch && hit ? 2.6 : 1.2) + p.s * 1.1);
+    const sz = Math.max(1.1, (msgMatch && hit ? 2.8 : 1.35) + p.s * 1.2);
     ctx.fillRect(p.x - sz / 2, p.y - sz / 2, sz, sz);
   }
 
@@ -241,6 +281,8 @@ function draw() {
   // 标签：只给最重要的十几颗 + 选中/悬停，并做碰撞剔除
   const labelSet = new Set();
   placed.length = 0;
+  labelQueue = [];
+  const drawPts = [];
   if (selected) labelSet.add(selected.id);
   if (hovered) labelSet.add(hovered.id);
   const cand = order.filter(({ s }) => !query || matches(s))
@@ -292,27 +334,86 @@ function draw() {
       ctx.globalAlpha = 0.9; ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 1;
       ctx.beginPath(); ctx.arc(p.x, p.y, Math.min(34, Math.max(4, base * 4.2)), 0, Math.PI * 2); ctx.stroke();
     }
-    if (opts.labels && labelSet.has(s.id)) {
-      ctx.font = '11px "Microsoft YaHei", sans-serif';
-      const txt = s.title.slice(0, 14);
-      const w = ctx.measureText(txt).width;
-      const lx = p.x + Math.max(4, base * 1.4), ly = p.y + 3;
-      const box = [lx - 2, ly - 11, w + 6, 14];
-      const hit = placed.some((b) => !(box[0] > b[0] + b[2] || box[0] + box[2] < b[0] || box[1] > b[1] + b[3] || box[1] + box[3] < b[1]));
-      if (!hit) {
-        placed.push(box);
-        ctx.globalAlpha = 0.55 + 0.35 * Math.min(1, r);
-        ctx.fillStyle = '#d6e4ff';
-        ctx.fillText(txt, lx, ly);
+    drawPts.push({ s, r, p, base });
+    if (opts.labels && labelSet.has(s.id)) labelQueue.push({ s, r, p, base });
+  }
+  // 同一类型之间的连线：点色点、或选中某个记忆点时出现
+  if (linkKind) {
+    if (linkGraphKind !== linkKind) { linkGraph = buildKindGraph(linkKind); linkGraphKind = linkKind; }
+    if (linkGraph && linkGraph.edges.length) {
+      const pos = new Map();
+      for (const it of drawPts) pos.set(it.s.id, it.p);
+      const col = (KIND[linkKind] || {}).color || [170, 200, 255];
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.strokeStyle = 'rgba(' + col.join(',') + ',1)';
+      ctx.lineCap = 'round';
+      for (const [aId, bId, w] of linkGraph.edges) {
+        const A = pos.get(aId), B = pos.get(bId);
+        if (!A || !B) continue;
+        ctx.globalAlpha = 0.30 + 0.42 * w;
+        ctx.lineWidth = 1.8 + 2.2 * w;      // 比之前粗一档
+        ctx.beginPath();
+        ctx.moveTo(A.x, A.y);
+        ctx.lineTo(B.x, B.y);
+        ctx.stroke();
+      }
+      ctx.fillStyle = 'rgba(' + col.join(',') + ',1)';
+      for (const it of drawPts) {
+        if (it.s.kind !== linkKind) continue;
+        ctx.globalAlpha = 0.6;
+        ctx.beginPath();
+        ctx.arc(it.p.x, it.p.y, 2.2, 0, Math.PI * 2);
+        ctx.fill();
       }
     }
   }
+
   ctx.globalCompositeOperation = 'source-over';
+
+  // 标签统一放到最后画：不会被后面星点的光晕盖住
+  if (opts.labels) {
+    ctx.font = '13.5px "Microsoft YaHei", sans-serif';
+    for (const it of labelQueue) {
+      const s = it.s, r = it.r, p = it.p, base = it.base;
+      const dtxt = shortDate(s.at);
+      const txt = s.title.slice(0, 12);
+      const wD = ctx.measureText(dtxt).width;
+      const wT = ctx.measureText(txt).width;
+      const lx = p.x + Math.max(5, base * 1.5), ly = p.y + 5;
+      const box = [lx - 3, ly - 13, wD + wT + 12, 18];
+      const hit = placed.some((b) => !(box[0] > b[0] + b[2] || box[0] + box[2] < b[0] || box[1] > b[1] + b[3] || box[1] + box[3] < b[1]));
+      if (hit) continue;
+      placed.push(box);
+      // 深色底衬，字号大了也不糊
+      ctx.globalAlpha = 0.9;
+      ctx.fillStyle = 'rgba(4,8,16,.9)';
+      ctx.beginPath();
+      const rr = 4, bx = box[0], by = box[1], bw = box[2], bh = box[3];
+      ctx.moveTo(bx + rr, by);
+      ctx.lineTo(bx + bw - rr, by);
+      ctx.quadraticCurveTo(bx + bw, by, bx + bw, by + rr);
+      ctx.lineTo(bx + bw, by + bh - rr);
+      ctx.quadraticCurveTo(bx + bw, by + bh, bx + bw - rr, by + bh);
+      ctx.lineTo(bx + rr, by + bh);
+      ctx.quadraticCurveTo(bx, by + bh, bx, by + bh - rr);
+      ctx.lineTo(bx, by + rr);
+      ctx.quadraticCurveTo(bx, by, bx + rr, by);
+      ctx.closePath();
+      ctx.fill();
+      const a0 = 0.8 + 0.2 * Math.min(1, r);
+      ctx.globalAlpha = a0;
+      ctx.fillStyle = '#9fb8de';
+      ctx.fillText(dtxt, lx, ly);
+      ctx.globalAlpha = a0;
+      ctx.fillStyle = '#e2ecff';
+      ctx.fillText(txt, lx + wD + 6, ly);
+    }
+  }
   ctx.globalAlpha = 1;
 }
 
 function loop() {
-  if (opts.spin && !dragging) cam.yaw += 0.0016;
+  if (opts.spin && !dragging) cam.yaw += 0.00045;   // 自转很慢：约 4.7 分钟一圈
   draw();
   requestAnimationFrame(loop);
 }
@@ -350,7 +451,12 @@ cv.addEventListener('dblclick', async (e) => {
   const hit = pick(e.clientX, e.clientY);
   if (!hit) return;
   hit.pin = !hit.pin;
-  // 只读模式：钉住只在本次浏览有效，不会改动记忆库
+  try {
+    const pbase = location.pathname.replace(/[^/]*$/, '');
+    try {
+      await fetch(`${pbase}api/pin`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id: hit.id, pin: hit.pin }) });
+    } catch {}   // 插件版没有写回接口，本地翻转即可
+  } catch { /* 仅前端标记 */ }
   select(hit);
 });
 cv.addEventListener('wheel', (e) => {
@@ -378,7 +484,13 @@ function pick(mx, my) {
 }
 
 function select(s) {
+  const prev = selected;
   selected = s;
+  if (s && !s.isMessage && s.kind) {
+    linkKind = (prev === s && linkKind === s.kind) ? null : s.kind;
+    renderKinds();
+  }
+  if (!s) { linkKind = null; renderKinds(); }
   const d = el('detail');
   if (!s) { d.classList.remove('show'); return; }
   d.classList.add('show');
@@ -390,7 +502,7 @@ function select(s) {
       '<span>' + (s.key.startsWith('private') ? '私聊' : '群聊') + '</span>',
       '<span>' + s.key + '</span>',
       '<span>' + (s.self ? '我说' : '对方') + '</span>',
-      '<span>' + dt.toISOString().slice(5, 16).replace('T', ' ') + '</span>',
+      '<span>' + fullDate(s.at) + '</span>',
       '<span>留存 ' + (Math.exp(-(s.ageDays + tDays) / s.tau) * 100).toFixed(0) + '%</span>',
     ].join('');
     return;
@@ -402,6 +514,7 @@ function select(s) {
     `<span>${(KIND[s.kind] || {}).label || s.kind}</span>`,
     `<span>${s.rawKind}</span>`,
     `<span>权重 ${s.weight}</span>`,
+    `<span>记于 ${fullDate(s.at)}</span>`,
     `<span>${s.ageDays < 1 ? '今天' : s.ageDays.toFixed(0) + ' 天前'}</span>`,
     `<span>留存 ${(r * 100).toFixed(0)}%</span>`,
     `<span>${stateLabel(stateOf(r))}</span>`,
@@ -414,7 +527,45 @@ function stateLabel(st) { return { vivid: '清晰', faded: '模糊', trace: '影
 /* ---------- 面板 ---------- */
 let activeKinds = new Set();
 
+// 在三维世界坐标里算邻接关系：跟着银河转也不会因为屏幕距离变化而断/重连
+function buildKindGraph(kind) {
+  const list = stars.filter((s) => s.kind === kind);
+  const N = list.length;
+  const edges = [];
+  const MAXD = 460;            // 世界单位（盘面半径 R=1000）
+  const K = 3;                 // 每个点连最近的 3 个
+  const seen = new Set();
+  for (let i = 0; i < N; i++) {
+    const a = list[i];
+    const cands = [];
+    for (let j = 0; j < N; j++) {
+      if (i === j) continue;
+      const b = list[j];
+      const dx = a.x - b.x, dy = a.y - b.y, dz = a.z - b.z;
+      const d = Math.sqrt(dx * dx + dy * dy + dz * dz);
+      if (d <= MAXD) cands.push({ j, d });
+    }
+    cands.sort((p, q) => p.d - q.d);
+    for (const c of cands.slice(0, K)) {
+      const key = i < c.j ? i + '-' + c.j : c.j + '-' + i;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      edges.push([a.id, list[c.j].id, 1 - c.d / MAXD]);
+    }
+  }
+  return { edges };
+}
+
 function renderKinds() {
+  const bar = el('linkbar');
+  if (bar) {
+    const k = linkKind;
+    bar.innerHTML = k
+      ? `<span class="chip" id="linkoff">连线中：<b>${(KIND[k] || {}).label || k}</b> ✕ 点这里退出</span>`
+      : '';
+    const off = el('linkoff');
+    if (off) off.addEventListener('click', () => { linkKind = null; renderKinds(); });
+  }
   const box = el('kinds');
   const counts = {};
   for (const s of stars) counts[s.kind] = (counts[s.kind] || 0) + 1;
@@ -422,20 +573,29 @@ function renderKinds() {
     .filter(([k]) => counts[k])
     .map(([k, v]) => {
       const off = hiddenKinds.has(k) ? ' off' : '';
-      return `<div class="kindrow${off}" data-k="${k}"><i class="dot" style="background:rgb(${v.color.join(',')})"></i>${v.label}<span class="n">${counts[k]}</span></div>`;
+      const on = linkKind === k ? ' on' : '';
+      return `<div class="kindrow${off}${on}" data-k="${k}"><i class="dot" style="background:rgb(${v.color.join(',')})"></i>${v.label}<span class="n">${counts[k]}</span></div>`;
     }).join('');
-  box.querySelectorAll('.kindrow').forEach((row) => row.addEventListener('click', () => {
-    const k = row.dataset.k;
-    hiddenKinds.has(k) ? hiddenKinds.delete(k) : hiddenKinds.add(k);
-    renderKinds();
-  }));
+  box.querySelectorAll('.kindrow').forEach((row) => {
+    row.title = '点小圆点：把同类型的点连起来；点名字：隐藏/显示该类型';
+    row.addEventListener('click', (ev) => {
+      const k = row.dataset.k;
+      if (ev.target.classList.contains('dot')) {
+        linkKind = linkKind === k ? null : k;
+        renderKinds();
+        return;
+      }
+      hiddenKinds.has(k) ? hiddenKinds.delete(k) : hiddenKinds.add(k);
+      renderKinds();
+    });
+  });
 }
 
 function renderStates() {
   const n = { vivid: 0, faded: 0, trace: 0, gone: 0 };
   for (const s of stars) n[stateOf(retention(s, tDays))] += 1;
   el('states').innerHTML = `<span>清晰 ${n.vivid}</span><span>模糊 ${n.faded}</span><span>影子 ${n.trace}</span><span>沉底 ${n.gone}</span>`;
-  el('tStats').textContent = tDays === 0 ? '' : `${n.vivid} 清晰 · ${n.gone} 已沉底`;
+  el('tStats').textContent = tDays === 0 ? '' : `${n.vivid} 清晰 · ${n.faded} 模糊 · ${n.trace} 影子 · ${n.gone} 沉底`;
 }
 
 function renderLists() {
@@ -451,10 +611,26 @@ function renderLists() {
 }
 
 /* ---------- 时间滑杆 ---------- */
+function localDate(d) {
+  const p = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+const MAXD = 365;
+function renderTicks() {
+  const marks = [0, 30, 90, 180, 365];
+  const box = el('ticks');
+  box.innerHTML = marks.map((v) => {
+    const pct = (v / MAXD) * 100;
+    const align = pct <= 2 ? 'translateX(0)' : pct >= 98 ? 'translateX(-100%)' : 'translateX(-50%)';
+    const label = v === 0 ? '今天' : `+${v}天`;
+    return `<span style="left:${pct.toFixed(2)}%;transform:${align}">${label}</span>`;
+  }).join('');
+}
+renderTicks();
 el('slider').addEventListener('input', (e) => {
   tDays = Number(e.target.value);
   const d = new Date(Date.now() + tDays * 86400000);
-  el('tLabel').textContent = tDays === 0 ? '今天' : `${d.toISOString().slice(0, 10)}（+${tDays} 天）`;
+  el('tLabel').textContent = tDays === 0 ? '今天' : `${localDate(d)}（+${tDays} 天）`;
   renderStates();
 });
 
@@ -462,15 +638,15 @@ el('search').addEventListener('input', (e) => { query = e.target.value.trim(); m
 document.querySelectorAll('#tools button').forEach((b) => b.addEventListener('click', () => {
   const t = b.dataset.t;
   if (t === 'reset') {
-    cam = { yaw: -0.55, pitch: -1.35, dist: 1300, focal: 1400 };
+    cam = { yaw: -0.55, pitch: -1.30, dist: 1950, focal: 1400 };
     tDays = 0; el('slider').value = 0; el('tLabel').textContent = '今天';
-    hiddenKinds.clear(); query = ''; el('search').value = '';
+    hiddenKinds.clear(); linkKind = null; linkGraph = null; linkGraphKind = null; query = ''; el('search').value = '';
     opts = { spin: true, beams: false, labels: true };
     document.querySelectorAll('#tools button').forEach((x) => x.classList.toggle('on', x.dataset.t === 'spin' || x.dataset.t === 'labels'));
     renderKinds(); renderStates(); select(null);
     return;
   }
-  if (t === 'top') { cam.pitch = -1.5607; cam.dist = 1250; cam.yaw = -0.55; return; }
+  if (t === 'top') { cam.pitch = -1.5607; cam.dist = 2100; cam.yaw = -0.55; return; }
   opts[t] = !opts[t];
   b.classList.toggle('on', opts[t]);
 }));
@@ -478,7 +654,19 @@ document.querySelectorAll('#tools button').forEach((b) => b.addEventListener('cl
 /* ---------- 启动 ---------- */
 async function boot() {
   resize();
-  const data = await fetch('api/data', { cache: 'no-store' }).then((r) => r.json());
+  const base = location.pathname.replace(/[^/]*$/, '');   // 例如 /memory-galaxy/
+  const cands = [`${base}api/galaxy`, `${base}api/data`, `${base}data/galaxy.json`];
+  let data = null, used = '';
+  for (const url of cands) {
+    try {
+      const r = await fetch(url, { cache: 'no-store' });
+      if (!r.ok) continue;
+      const j = await r.json();
+      if (j && Array.isArray(j.stars)) { data = j; used = url; break; }
+    } catch {}
+  }
+  if (!data) throw new Error('数据源都不可用：' + cands.join(' , '));
+  console.log('[galaxy] data from', used);
   stars = data.stars; messages = (data.messages || []).map((m) => ({ ...m, isMessage: true })); links = data.links || []; meta = data.meta;
   el('nStars').textContent = meta.total;
   el('avgS').textContent = meta.avgStrength;
@@ -489,17 +677,22 @@ async function boot() {
   renderKinds(); renderStates(); renderLists();
   // 支持 ?t=180 直接看未来形态（也方便截图验收）
   const q2 = new URLSearchParams(location.search);
-  if (q2.get('view') === 'top') { cam.pitch = -1.5607; cam.dist = 1250; }
+  if (q2.get('view') === 'top') { cam.pitch = -1.5607; cam.dist = 2100; }
   const qq = q2.get('q');
   if (qq) { el('search').value = qq; el('search').dispatchEvent(new Event('input')); }
   const dq = Number(q2.get('dist'));
   if (Number.isFinite(dq) && dq > 0) cam.dist = dq;
+  
   const tq = Number(q2.get('t'));
   if (Number.isFinite(tq) && tq > 0) {
     el('slider').value = Math.min(365, tq);
     el('slider').dispatchEvent(new Event('input'));
   }
   select(null);
+  const kq = q2.get('kind');
+  if (kq && KIND[kq]) { linkKind = kq; renderKinds(); }
+  const selId = q2.get('sel');
+  if (selId) { const hit = stars.find((s) => s.id === selId); if (hit) select(hit); }
   loop();
 }
 boot();
