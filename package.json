@@ -1,6 +1,6 @@
 {
   "name": "dsh-memory-galaxy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Memory Galaxy for DeepSeek Harness: paint your long-term memory as a spiral galaxy — long-term anchors in the core, short-term memories drifting outward, with a draggable forgetting-time slider to preview the future.",
   "author": "Derpyu520 & 大肥鱼",
   "license": "MIT",
